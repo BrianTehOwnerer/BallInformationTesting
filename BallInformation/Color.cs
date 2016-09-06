@@ -18,7 +18,15 @@ namespace BallInformation
             this.red = red;
             this.green = green;
             this.blue = blue;
+            if (alpha < 0) this.alpha = 255;
             this.alpha = alpha;
+        }
+        public Color(byte red, byte green, byte blue)
+        {
+            this.red = red;
+            this.green = green;
+            this.blue = blue;
+            this.alpha = 255;
         }
 
         public void SetColor(byte red, byte green, byte blue, byte alpha)
@@ -34,15 +42,30 @@ namespace BallInformation
             this.red = red;
             this.green = green;
             this.blue = blue;
-            this.alpha = 255;
+            alpha = 255;
         }
-
+        ///add get color methods.
+        public byte GetColorRed()
+        {
+            return this.red;
+        }
+        public byte GetColorGreen()
+        {
+            return this.green;
+        }
+        public byte GetColorBlue()
+        {
+            return this.blue;
+        }
+        public byte GetColorAlpha()
+        {
+            return this.alpha;
+        }
         public byte GetGreyscale()
         {
-            byte greyscale = (this.red + this.green + this.blue) / 3;
+            byte greyscale = Convert.ToByte((red + green + blue) / 3);
             return greyscale;
         }
-
 
     }
 }
